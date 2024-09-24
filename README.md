@@ -17,7 +17,7 @@ Essa operação deve listar `todos os depósitos e saques realizados na conta`. 
 **1500.45 = R$ 1500.45**
 
 
-# DIO - Desafio Bancário V02
+# DIO - Desafio Bancário v02
 
 ## *Objetivo Geral*
 `Separar as funções existentes` de saque, depósito e extrato em funções. `Criar duas funções`: cadastrar usuário (cliente) e cadastrar conta bancária.
