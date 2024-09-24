@@ -55,7 +55,7 @@ class Banco:
     def __init__(self): # Método construtor
         self.clientes = {} # Dicionário vazio
         self.contas = {} # Dicionário vazio 
-        self.numero_conta = 1001  # Número da conta
+        self.numero_conta = 1  # Número da conta
 
     def criar_cliente(self): 
         cpf = input('Digite o CPF (somente números): ')
@@ -215,7 +215,7 @@ class Banco:
         else:
             print('Cliente não encontrado.')
 
-    def realizar_saque(self):
+    def realizar_saque(self): 
         cpf = input('Digite o CPF do cliente: ')
         if cpf in self.clientes:
             valor = self.solicitar_valor('saque')
