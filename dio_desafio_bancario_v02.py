@@ -170,6 +170,37 @@ class Banco:
     def formatar_cpf(self, cpf):
         return f'{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}' if cpf else None 
 
+    def realizar_deposito(self):
+        cpf = input('Digite o CPF do cliente: ')
+        if cpf in self.clientes:
+            valor = self.solicitar_valor('depósito')
+            conta_escolhida = self.escolher_conta(cpf)
+            if conta_escolhida:
+                conta_escolhida.saldo, conta_escolhida.extrato = conta_escolhida.depositar(
+                    conta_escolhida.saldo, valor, conta_escolhida.extrato) 
+        else:
+            print('Cliente não encontrado.')
+
+    def realizar_saque(self): 
+        cpf = input('Digite o CPF do cliente: ')
+        if cpf in self.clientes:
+            valor = self.solicitar_valor('saque')
+            conta_escolhida = self.escolher_conta(cpf)
+            if conta_escolhida:
+                conta_escolhida.saldo, conta_escolhida.extrato = conta_escolhida.sacar(
+                    saldo=conta_escolhida.saldo, valor=valor, extrato=conta_escolhida.extrato)
+        else:
+            print('Cliente não encontrado.')
+
+    def mostrar_extrato(self):
+        cpf = input('Digite o CPF do cliente: ')
+        if cpf in self.clientes:
+            conta_escolhida = self.escolher_conta(cpf)
+            if conta_escolhida:
+                self.exibir_extrato(conta_escolhida.saldo, extrato=conta_escolhida.extrato)
+        else:
+            print('Cliente não encontrado.')
+
     def menu(self): # Método para exibir o menu
         while True:
             menu_texto = '''
@@ -203,37 +234,6 @@ class Banco:
                 break
             else:
                 print('Opção inválida. Tente novamente.')
-
-    def realizar_deposito(self):
-        cpf = input('Digite o CPF do cliente: ')
-        if cpf in self.clientes:
-            valor = self.solicitar_valor('depósito')
-            conta_escolhida = self.escolher_conta(cpf)
-            if conta_escolhida:
-                conta_escolhida.saldo, conta_escolhida.extrato = conta_escolhida.depositar(
-                    conta_escolhida.saldo, valor, conta_escolhida.extrato) 
-        else:
-            print('Cliente não encontrado.')
-
-    def realizar_saque(self): 
-        cpf = input('Digite o CPF do cliente: ')
-        if cpf in self.clientes:
-            valor = self.solicitar_valor('saque')
-            conta_escolhida = self.escolher_conta(cpf)
-            if conta_escolhida:
-                conta_escolhida.saldo, conta_escolhida.extrato = conta_escolhida.sacar(
-                    saldo=conta_escolhida.saldo, valor=valor, extrato=conta_escolhida.extrato)
-        else:
-            print('Cliente não encontrado.')
-
-    def mostrar_extrato(self):
-        cpf = input('Digite o CPF do cliente: ')
-        if cpf in self.clientes:
-            conta_escolhida = self.escolher_conta(cpf)
-            if conta_escolhida:
-                self.exibir_extrato(conta_escolhida.saldo, extrato=conta_escolhida.extrato)
-        else:
-            print('Cliente não encontrado.')
 
 if __name__ == '__main__':  # Se o módulo for executado como programa principal
     banco = Banco() # Instancia a classe Banco  
