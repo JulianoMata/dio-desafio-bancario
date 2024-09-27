@@ -49,6 +49,13 @@ O programa deve armazenar `contas em uma lista, uma conta é composta por agênc
 ## *Dica*
 Para vincular um usuário a uma conta, filtre a lista de usuários buscando o número do CPF informado para cada usuário da lista.
 
+# DIO - Desafio Bancário v03
+
+Após concluir a modelagem das classes e a criação dos métodos. Atualizar os métodos que tratam as opções do menu para funcionarem com as classes modeladas.
+
+## Extra
+
+`Validar os dados de entrada do usuário`, como por exemplo, nome permite apenas letras e espaços, se o valor do depósito é um número, se o valor do saque é um número, se o CPF e o celular contém 11 dígitos (numéricos), se a data é válida (formato) e o e-mail é um e-mail válido (contem "@"), etc.
 
 ## *License*
 
